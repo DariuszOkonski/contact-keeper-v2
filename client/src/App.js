@@ -2,14 +2,22 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
+import React from 'react';
+import Home from './components/pages/Home';
+import About from './components/pages/About';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className='App'>
+      <React.Fragment>
         <Navbar />
-        <div className='container'>My App</div>
-      </div>
+        <div className='container'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+          </Routes>
+        </div>
+      </React.Fragment>
     </BrowserRouter>
   );
 };
