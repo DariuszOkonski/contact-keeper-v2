@@ -1,14 +1,16 @@
 // https://github.com/bradtraversy/contact-keeper
 import './App.css';
-import { Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 
 const App = () => {
   return (
-    <div className='App'>
-      <Navbar />
-      My App
-    </div>
+    <BrowserRouter>
+      <div className='App'>
+        <Navbar />
+        <div className='container'>My App</div>
+      </div>
+    </BrowserRouter>
   );
 };
 
