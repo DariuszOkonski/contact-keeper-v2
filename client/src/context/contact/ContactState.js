@@ -14,6 +14,7 @@ import contactReducer from './contactReducer';
 
 const ContactState = (props) => {
   const initialState = {
+    current: null,
     contacts: [
       {
         id: 1,
@@ -51,6 +52,13 @@ const ContactState = (props) => {
     dispatch({ type: DELETE_CONTACT, payload: id });
   };
   // set current contact
+  const setCurrent = (contact) => {
+    dispatch({ type: SET_CURRENT, payload: contact });
+  };
+
+  const clearCurrent = () => {
+    dispatch({ type: CLEAR_CURRENT });
+  };
   // clear current contact
   // update contact
   // filter contacts
@@ -58,7 +66,14 @@ const ContactState = (props) => {
 
   return (
     <ContactContext.Provider
-      value={{ contacts: state.contacts, addContact, deleteContact }}
+      value={{
+        contacts: state.contacts,
+        current: state.current,
+        addContact,
+        deleteContact,
+        setCurrent,
+        clearCurrent,
+      }}
     >
       {props.children}
     </ContactContext.Provider>
