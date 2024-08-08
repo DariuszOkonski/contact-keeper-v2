@@ -9,24 +9,27 @@ import ContactState from './context/contact/ContactState';
 import AuthState from './context/auth/AuthState';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import AlertState from './context/alert/AlertState';
 
 const App = () => {
   return (
     <AuthState>
       <ContactState>
-        <BrowserRouter>
-          <React.Fragment>
-            <Navbar />
-            <div className='container'>
-              <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/register' element={<Register />} />
-                <Route path='/login' element={<Login />} />
-              </Routes>
-            </div>
-          </React.Fragment>
-        </BrowserRouter>
+        <AlertState>
+          <BrowserRouter>
+            <React.Fragment>
+              <Navbar />
+              <div className='container'>
+                <Routes>
+                  <Route path='/' element={<Home />} />
+                  <Route path='/about' element={<About />} />
+                  <Route path='/register' element={<Register />} />
+                  <Route path='/login' element={<Login />} />
+                </Routes>
+              </div>
+            </React.Fragment>
+          </BrowserRouter>
+        </AlertState>
       </ContactState>
     </AuthState>
   );
